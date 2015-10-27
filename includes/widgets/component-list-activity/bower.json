@@ -1,0 +1,13 @@
+{
+   "name": "component-list-activity",
+   "version": "0.1.0-pre",
+   "description": "Provides data on components",
+   "license": "MIT",
+   "authors": [ "aixigo AG" ],
+   "dependencies": {
+      "laxar": "~1.1.0"
+   },
+   "devDependencies": {
+      "laxar-mocks": "~0.6.0"
+   }
+}

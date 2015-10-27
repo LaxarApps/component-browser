@@ -1,13 +1,12 @@
 {
    "places": {
       "entry": {
-         "redirectTo": "home"
+         "redirectTo": "components"
       },
 
-      "home": {
-         "page":  "home",
-         "targets": {
-         }
+      "components/:anchor": {
+         "page":  "components",
+         "targets": {}
       }
    }
 }

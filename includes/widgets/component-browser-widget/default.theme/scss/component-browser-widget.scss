@@ -1,0 +1,115 @@
+/**
+ * Copyright 2015 aixigo AG
+ * Released under the MIT license
+ */
+@charset "UTF-8";
+
+$evenBackground: #5BC0DE;
+$oddBackground: #FF9900;
+$componentsBackground: #737373;
+$componentsBackgroundActive: #5CB85C;
+
+.component-browser-widget {
+   width: 100%;
+
+   .component-browser-origin-container {
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: row;
+      align-content: stretch;
+
+      > ul {
+         min-width: 100%;
+         margin-bottom: 15px;
+      }
+
+      > ul:last-child {
+         margin-right: 0;
+      }
+
+      > ul:nth-child(even) h3,
+      > ul:nth-child(even) h4 {
+         background: $evenBackground;
+      }
+
+      > ul:nth-child(odd) h3,
+      > ul:nth-child(odd) h4 {
+         background: $oddBackground;
+      }
+   }
+
+   @media( min-width: 1200px ) {
+      .component-browser-origin-container {
+         > ul {
+            min-width: calc( 50% - 10px );
+            margin-right: 15px;
+         }
+
+         > ul:last-child {
+            min-width: calc( 50% - 10px );
+            margin-left: 5px;
+            margin-right: 0;
+         }
+      }
+   }
+
+   ul {
+      margin: 0;
+      padding: 0;
+   }
+
+   li {
+      list-style: none inside none;
+      margin: 0;
+      display: flex;
+   }
+
+   li > ul {
+      min-width: 60%;
+      width: fill-available;
+      margin-left: 2px;
+   }
+
+   li {
+      margin-top: 2px;
+      &:first-child {
+         margin-top: 0;
+      }
+   }
+
+   h3 {
+      min-width: 120px;
+      color: white;
+      font-size: 24px;
+      padding-top: 6px;
+      padding-left: 8px;
+      margin: 0;
+   }
+
+   h4 {
+      min-width: 140px;
+      color: white;
+      font-size: 24px;
+      padding: 6px 8px 2px 8px;
+      margin: 0;
+   }
+
+   a {
+      background: $componentsBackground;
+      min-width: 160px;
+      width: fill-available;
+      color: white;
+      font-size: 18px;
+      padding: 4px 6px 3px 6px;
+      margin: 0;
+   }
+
+   a, a:link, a:hover, a:focus, a:active {
+      text-decoration: none;
+   }
+   a:hover {
+      background: $componentsBackgroundActive;
+   }
+
+}
+
