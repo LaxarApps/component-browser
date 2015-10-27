@@ -1,0 +1,17 @@
+{
+   "name": "component-list-activity",
+   "description": "Provides data on components",
+
+   "integration": {
+      "technology": "plain",
+      "type": "activity"
+   },
+
+   "features": {
+      "$schema": "http://json-schema.org/draft-04/schema#",
+      "type": "object",
+      "properties": {
+
+      }
+   }
+}
