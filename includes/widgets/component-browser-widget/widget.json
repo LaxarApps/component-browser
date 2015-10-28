@@ -3,7 +3,7 @@
    "description": "",
 
    "integration": {
-      "technology": "plain",
+      "technology": "react",
       "type": "widget"
    },
 
@@ -11,7 +11,16 @@
       "$schema": "http://json-schema.org/draft-04/schema#",
       "type": "object",
       "properties": {
-
+         "components": {
+            "type": "object",
+            "required": [ "resource" ],
+            "properties": {
+               "resource": {
+                  "type": "string",
+                  "format": "topic"
+               }
+            }
+         }
       }
    }
 }

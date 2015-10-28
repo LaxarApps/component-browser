@@ -6,7 +6,7 @@
 
 ### 1. Display a list of grouped software components *(components)*
 
-*R1.1* The widget MUSTallow to configure a resource topic under which to expect an artifact listing.
+*R1.1* The widget MUST allow to configure a resource topic under which to expect an artifact listing.
 
 *Note:* The artifacts listing has the following form:
 

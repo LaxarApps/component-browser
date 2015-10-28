@@ -24,6 +24,27 @@ module.exports = function( grunt ) {
                livereload: liveReloadPort
             }
          }
+      },
+      babel: {
+         options: {
+            sourceMap: true,
+            modules: 'amd'
+         },
+         widgets: {
+            files: [{
+               expand: true,
+               cwd: 'includes/widgets/',
+               src: [ '*/*.jsx' ],
+               dest: 'includes/widgets/',
+               ext: '.js'
+            }]
+         }
+      },
+      watch: {
+         jsx: {
+            files: [ 'includes/widgets/*/*.jsx' ],
+            tasks: [ 'babel:widgets' ]
+         }
       }
 
    } );
@@ -31,17 +52,18 @@ module.exports = function( grunt ) {
    ///////////////////////////////////////////////////////////////////////////////////////////////////////////
 
    grunt.loadNpmTasks( 'grunt-laxar' );
+   grunt.loadNpmTasks( 'grunt-babel' );
 
    // basic aliases
    grunt.registerTask( 'test', [ 'laxar-test' ] );
-   grunt.registerTask( 'build', [ 'laxar-build' ] );
+   grunt.registerTask( 'build', [ 'babel', 'laxar-build' ] );
    grunt.registerTask( 'dist', [ 'laxar-dist' ] );
-   grunt.registerTask( 'develop', [ 'laxar-develop' ] );
+   grunt.registerTask( 'develop', [ 'babel', 'laxar-develop' ] );
    grunt.registerTask( 'info', [ 'laxar-info' ] );
 
    // additional (possibly) more intuitive aliases
    grunt.registerTask( 'optimize', [ 'laxar-dist' ] );
-   grunt.registerTask( 'start', [ 'laxar-develop' ] );
+   grunt.registerTask( 'start', [ 'babel', 'laxar-develop' ] );
    grunt.registerTask( 'start-no-watch', [ 'laxar-develop-no-watch' ] );
 
    grunt.registerTask( 'default', [ 'build', 'test' ] );
