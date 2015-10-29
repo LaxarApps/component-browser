@@ -13,9 +13,10 @@ define(['exports', 'module', 'react'], function (exports, module, _react) {
       name: 'component-browser-widget',
       injections: ['axEventBus', 'axFeatures', 'axReactRender'],
       create: function create(eventBus, features, reactRender) {
-         var origins = [];
-
          var resource = features.components.resource;
+         var details = features.details;
+
+         var origins = [];
 
          eventBus.subscribe('didReplace.' + resource, function (_ref) {
             var data = _ref.data;
@@ -23,6 +24,12 @@ define(['exports', 'module', 'react'], function (exports, module, _react) {
             origins = data.origins;
             render();
          });
+
+         return {
+            onDomAvailable: render
+         };
+
+         //////////////////////////////////////////////////////////////////////////
 
          function render() {
             var componentsDom = function componentsDom(components) {
@@ -35,7 +42,11 @@ define(['exports', 'module', 'react'], function (exports, module, _react) {
                         { key: component.name },
                         _React['default'].createElement(
                            'a',
-                           { href: component['url-readme'], title: component.description },
+                           { href: component['url-readme'],
+                              title: component.description,
+                              onClick: function (event) {
+                                 return showDetails(event, component);
+                              } },
                            component.name
                         )
                      );
@@ -88,9 +99,25 @@ define(['exports', 'module', 'react'], function (exports, module, _react) {
             reactRender(originsDom());
          }
 
-         return {
-            onDomAvailable: render
-         };
+         //////////////////////////////////////////////////////////////////////////
+
+         function showDetails(event, component) {
+            if (event.ctrlKey) {
+               return;
+            }
+            var resource = details.resource;
+            var action = details.action;
+            var relation = details.relation;
+
+            var data = {
+               _links: { markdown: { href: component['url-' + relation] } }
+            };
+
+            event.preventDefault();
+            eventBus.publish('didReplace.' + resource, { resource: resource, data: data }).then(function () {
+               return eventBus.publish('takeActionRequest.' + action, { action: action });
+            });
+         }
       }
    };
 });

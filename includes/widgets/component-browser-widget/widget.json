@@ -21,12 +21,21 @@
                }
             }
          },
-         "relatedInfo": {
+         "details": {
             "type": "object",
             "properties": {
                "resource": {
                   "type": "string",
                   "format": "topic"
+               },
+               "action": {
+                  "type": "string",
+                  "format": "topic"
+               },
+               "relation": {
+                  "type": "string",
+                  "enum": [ "readme", "changelog" ],
+                  "default": "readme"
                }
             }
          }

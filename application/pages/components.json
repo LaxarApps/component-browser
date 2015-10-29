@@ -1,5 +1,5 @@
 {
-   "layout": "one-column",
+   "layout": "components",
 
    "areas": {
       "activities": [
@@ -7,14 +7,11 @@
             "widget": "component-list-activity",
             "features": {
                "components": {
-                  "url": "var/dummy-components.json",
+                  "url": "application/example/laxar-components.json",
                   "resource": "components"
                }
             }
          }
-      ],
-
-      "header": [
       ],
 
       "content": [
@@ -23,12 +20,45 @@
             "features": {
                "components": {
                   "resource": "components"
+               },
+               "details": {
+                 "action": "showDetails",
+                 "resource": "componentDetails",
+                 "relation": "readme"
                }
             }
          }
       ],
 
-      "footer": [
+      "popups": [
+         {
+           "widget": "amd:laxar-popup-widget",
+           "id": "details",
+           "features": {
+             "open": {
+               "onActions": [ "showDetails" ]
+             },
+             "closeIcon": {
+               "enabled": true
+             },
+             "content": {
+               "layout": "details"
+             }
+           }
+         }
+      ],
+
+      "details.content": [
+        {
+          "widget":  "amd:laxar-markdown-display-widget",
+          "id": "md",
+          "features": {
+            "markdown": {
+              "resource": "componentDetails",
+              "parameter": "anchor"
+            }
+          }
+        }
       ]
    }
 }

@@ -1,0 +1,114 @@
+{
+  "origins": [
+    {
+      "name": "Frontend",
+      "groups": [
+        {
+          "name": "Core",
+          "components": [
+            {
+              "name": "laxar",
+              "url-readme": "https://raw.githubusercontent.com/LaxarJS/laxar/master/README.md",
+              "url-changelog": "https://raw.githubusercontent.com/LaxarJS/laxar/master/CHANGELOG.md"
+            },
+            {
+              "name": "laxar-patterns",
+              "url-readme": "https://raw.githubusercontent.com/LaxarJS/laxar-patterns/master/README.md",
+              "url-changelog": "https://raw.githubusercontent.com/LaxarJS/laxar-patterns/master/CHANGELOG.md"
+            },
+            {
+              "name": "laxar-uikit",
+              "url-readme": "https://raw.githubusercontent.com/LaxarJS/laxar-uikit/master/README.md",
+              "url-changelog": "https://raw.githubusercontent.com/LaxarJS/laxar-uikit/master/CHANGELOG.md"
+            },
+            {
+              "name": "grunt-laxar",
+              "url-readme": "https://raw.githubusercontent.com/LaxarJS/grunt-laxar/master/README.md",
+              "url-changelog": "https://raw.githubusercontent.com/LaxarJS/grunt-laxar/master/CHANGELOG.md"
+            },
+            {
+              "name": "laxar-react-adapter",
+              "url-readme": "https://raw.githubusercontent.com/LaxarJS/laxar-react-adapter/master/README.md",
+              "url-changelog": "https://raw.githubusercontent.com/LaxarJS/laxar-react-adapter/master/CHANGELOG.md"
+            }
+          ]
+        },
+        {
+          "name": "Widgets",
+          "components": [
+            {
+              "name": "laxar-developer-tools-widget",
+              "url-readme": "https://raw.githubusercontent.com/LaxarJS/ax-developer-tools-widget/master/README.md",
+              "url-changelog": "https://raw.githubusercontent.com/LaxarJS/laxar/master/CHANGELOG.md"
+            },
+            {
+              "name": "laxar-popup-widget",
+              "url-readme": "https://raw.githubusercontent.com/LaxarJS/ax-popup-widget/master/README.md",
+              "url-changelog": "https://raw.githubusercontent.com/LaxarJS/ax-popup-widget/master/CHANGELOG.md"
+            },
+            {
+              "name": "laxar-markdown-display-widget",
+              "url-readme": "https://raw.githubusercontent.com/LaxarJS/ax-markdown-display-widget/master/README.md",
+              "url-changelog": "https://raw.githubusercontent.com/LaxarJS/ax-markdown-display-widget/master/CHANGELOG.md"
+            },
+            {
+              "name": "laxar-messages-widget",
+              "url-readme": "https://raw.githubusercontent.com/LaxarJS/ax-messages-widget/master/README.md",
+              "url-changelog": "https://raw.githubusercontent.com/LaxarJS/ax-messages-widget/master/CHANGELOG.md"
+            },
+            {
+              "name": "laxar-accordion-widget",
+              "url-readme": "https://raw.githubusercontent.com/LaxarJS/ax-accordion-widget/master/README.md",
+              "url-changelog": "https://raw.githubusercontent.com/LaxarJS/ax-accordion-widget/master/CHANGELOG.md"
+            }
+          ]
+        },
+        {
+          "name": "Controls",
+          "components": [
+            {
+              "name": "laxar-accordion-control",
+              "url-readme": "https://raw.githubusercontent.com/LaxarJS/ax-accordion-control/master/README.md",
+              "url-changelog": "https://raw.githubusercontent.com/LaxarJS/ax-accordion-control/master/CHANGELOG.md"
+            },
+            {
+              "name": "laxar-input-control",
+              "url-readme": "https://raw.githubusercontent.com/LaxarJS/ax-input-control/master/README.md",
+              "url-changelog": "https://raw.githubusercontent.com/LaxarJS/ax-input-control/master/CHANGELOG.md"
+            },
+            {
+              "name": "laxar-layer-control",
+              "url-readme": "https://raw.githubusercontent.com/LaxarJS/ax-layer-control/master/README.md",
+              "url-changelog": "https://raw.githubusercontent.com/LaxarJS/ax-layer-control/master/CHANGELOG.md"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Apps",
+      "groups": [
+        {
+          "name": "Portal",
+          "components": [
+            {
+              "name": "component-browser",
+              "url-readme": "https://raw.githubusercontent.com/LaxarApps/component-browser/master/README.md",
+              "url-changelog": "https://raw.githubusercontent.com/LaxarApps/component-browser/master/CHANGELOG.md"
+            },
+            {
+              "name": "changelog-viewer-client",
+              "url-readme": "https://raw.githubusercontent.com/LaxarApps/changelog-viewer-client/master/README.md",
+              "url-changelog": "https://raw.githubusercontent.com/LaxarApps/changelog-viewer-client/master/CHANGELOG.md"
+            },
+            {
+              "name": "changelog-viewer-server",
+              "url-readme": "https://raw.githubusercontent.com/LaxarApps/changelog-viewer-client/master/README.md",
+              "url-changelog": "https://raw.githubusercontent.com/LaxarApps/changelog-viewer-client/master/CHANGELOG.md"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

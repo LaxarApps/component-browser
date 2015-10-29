@@ -39,7 +39,10 @@ var require = {
 
       // React:
       'react': 'react/react',
-      'laxar-react-adapter': 'laxar-react-adapter/laxar-react-adapter'
+      'laxar-react-adapter': 'laxar-react-adapter/laxar-react-adapter',
+
+      // Popup:
+      'jquery': 'jquery/dist/jquery'
    },
    packages: [
       {

@@ -8,20 +8,31 @@ export default {
    name: 'component-browser-widget',
    injections: [ 'axEventBus', 'axFeatures', 'axReactRender' ],
    create: function( eventBus, features, reactRender ) {
+
+      const { components: { resource }, details } = features;
       let origins = [];
 
-      const { resource } = features.components;
       eventBus.subscribe( `didReplace.${resource}`, ({ data }) => {
          origins = data.origins;
          render();
       } );
+
+      return {
+         onDomAvailable: render
+      };
+
+      //////////////////////////////////////////////////////////////////////////
 
       function render() {
          const componentsDom = ( components ) =>
             <ul className='component-browser-components'>
                { components.map( component =>
                   <li key={component.name}>
-                     <a href={ component[ 'url-readme' ] } title={ component.description }>{ component.name }</a>
+                     <a href={ component[ 'url-readme' ] }
+                        title={ component.description }
+                        onClick={ event => showDetails( event, component ) }>
+                     { component.name }
+                     </a>
                   </li>
                ) }
             </ul>;
@@ -49,8 +60,21 @@ export default {
          reactRender( originsDom() );
       }
 
-      return {
-         onDomAvailable: render
-      };
+      //////////////////////////////////////////////////////////////////////////
+
+      function showDetails( event, component ) {
+        if( event.ctrlKey ) {
+          return;
+        }
+        const { resource, action, relation } = details;
+        const data = {
+          _links: { markdown: { href: component[ 'url-' + relation ] } }
+        };
+
+        event.preventDefault();
+        eventBus.publish( `didReplace.${resource}`, { resource, data } )
+          .then( () => eventBus.publish( `takeActionRequest.${action}`, { action } ) );
+      }
+
    }
 };

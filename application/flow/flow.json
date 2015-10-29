@@ -4,10 +4,9 @@
          "redirectTo": "components"
       },
 
-      "components": {
+      "components/:anchor": {
          "page":  "components",
-         "targets": {
-         }
+         "targets": {}
       }
    }
 }
