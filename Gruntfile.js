@@ -28,6 +28,43 @@ module.exports = function( grunt ) {
             }
          }
       },
+      'connect': {
+         'laxar-develop': {
+            options: {
+               middleware: function( connect, options, defaultMiddleware ) {
+                  var proxy =
+                     require( 'grunt-connect-proxy/lib/utils' ).proxyRequest;
+                  return [ proxy ].concat( defaultMiddleware );
+               }
+            },
+            'proxies': [
+               {
+                  // http://localhost:8008/gh/LaxarJS/laxar/master/CHANGELOG.md
+                  // -> https://raw.githubusercontent.com:443/LaxarJS/laxar/master/CHANGELOG.md
+                  context: '/gh',
+                  host: 'raw.githubusercontent.com',
+                  headers: {
+                     host: 'raw.githubusercontent.com'
+                  },
+                  hostRewrite: 'localhost',
+                  // port: 443,
+                  changeOrigin: true,
+                  rewrite: { '^/gh': '' },
+                  https: true,
+                  secure: true,
+                  xforward: false
+               },
+               {
+                  context: '/components',
+                  rewrite: { '^/components': 'application/example/laxar-components.json' },
+                  host: 'localhost',
+                  port: 80,
+                  https: false,
+                  xforward: true
+               }
+            ]
+         }
+      },
       'laxar-compass': {
          options: {
             compass: './tools/bin/compass'
@@ -61,19 +98,21 @@ module.exports = function( grunt ) {
 
    grunt.loadNpmTasks( 'grunt-laxar' );
    grunt.loadNpmTasks( 'grunt-laxar-compass' );
+   grunt.loadNpmTasks( 'grunt-connect-proxy' );
    grunt.loadNpmTasks( 'grunt-babel' );
 
    // basic aliases
    grunt.registerTask( 'test', [ 'laxar-test' ] );
    grunt.registerTask( 'build', [ 'babel', 'laxar-build' ] );
    grunt.registerTask( 'dist', [ 'laxar-dist' ] );
-   grunt.registerTask( 'develop', [ 'babel', 'laxar-develop' ] );
+   grunt.registerTask( 'develop', [
+      'babel', 'configureProxies:laxar-develop', 'laxar-develop'
+   ] );
    grunt.registerTask( 'info', [ 'laxar-info' ] );
 
    // additional (possibly) more intuitive aliases
    grunt.registerTask( 'optimize', [ 'laxar-dist' ] );
-   grunt.registerTask( 'start', [ 'babel', 'laxar-develop' ] );
-   grunt.registerTask( 'start-no-watch', [ 'laxar-develop-no-watch' ] );
+   grunt.registerTask( 'start', [ 'develop' ] );
 
    grunt.registerTask( 'default', [ 'build', 'test' ] );
 };
