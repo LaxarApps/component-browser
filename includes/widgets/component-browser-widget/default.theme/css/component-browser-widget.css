@@ -1,0 +1,113 @@
+/**
+ * Copyright 2015 aixigo AG
+ * Released under the MIT license
+ */
+.component-browser-widget {
+  width: 100%;
+}
+.component-browser-widget .component-browser-origin-container {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+     -moz-box-orient: horizontal;
+     -moz-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-align-content: stretch;
+      -ms-flex-line-pack: stretch;
+          align-content: stretch;
+}
+.component-browser-widget .component-browser-origin-container > ul {
+  min-width: 100%;
+  margin-bottom: 15px;
+}
+.component-browser-widget .component-browser-origin-container > ul:last-child {
+  margin-right: 0;
+}
+.component-browser-widget .component-browser-origin-container > ul:nth-child(even) h3,
+.component-browser-widget .component-browser-origin-container > ul:nth-child(even) h4 {
+  background: #5BC0DE;
+}
+.component-browser-widget .component-browser-origin-container > ul:nth-child(odd) h3,
+.component-browser-widget .component-browser-origin-container > ul:nth-child(odd) h4 {
+  background: #FF9900;
+}
+@media (min-width: 1200px) {
+  .component-browser-widget .component-browser-origin-container > ul {
+    min-width: -webkit-calc( 50% - 10px );
+    min-width: calc( 50% - 10px );
+    margin-right: 15px;
+  }
+  .component-browser-widget .component-browser-origin-container > ul:last-child {
+    min-width: -webkit-calc( 50% - 10px );
+    min-width: calc( 50% - 10px );
+    margin-left: 5px;
+    margin-right: 0;
+  }
+}
+.component-browser-widget ul {
+  margin: 0;
+  padding: 0;
+}
+.component-browser-widget li {
+  list-style: none inside none;
+  margin: 0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.component-browser-widget li > ul {
+  min-width: 60%;
+  width: -webkit-fill-available;
+  width: -moz-available;
+  width: fill-available;
+  margin-left: 2px;
+}
+.component-browser-widget li {
+  margin-top: 2px;
+}
+.component-browser-widget li:first-child {
+  margin-top: 0;
+}
+.component-browser-widget h3 {
+  min-width: 120px;
+  color: white;
+  font-size: 24px;
+  padding-top: 6px;
+  padding-left: 8px;
+  margin: 0;
+}
+.component-browser-widget h4 {
+  min-width: 140px;
+  color: white;
+  font-size: 24px;
+  padding: 6px 8px 2px 8px;
+  margin: 0;
+}
+.component-browser-widget a {
+  background: #737373;
+  min-width: 160px;
+  width: -webkit-fill-available;
+  width: -moz-available;
+  width: fill-available;
+  color: white;
+  font-size: 18px;
+  padding: 4px 6px 3px 6px;
+  margin: 0;
+}
+.component-browser-widget a, .component-browser-widget a:link, .component-browser-widget a:hover, .component-browser-widget a:focus, .component-browser-widget a:active {
+  text-decoration: none;
+}
+.component-browser-widget a:hover {
+  background: #5CB85C;
+}

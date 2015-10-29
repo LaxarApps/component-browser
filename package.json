@@ -1,19 +1,24 @@
 {
-   "name": "component-browser",
-   "version": "0.1.0-pre",
-   "description": "A simple application to browse software components by group",
-   "license": "MIT",
-   "scripts": {
-      "test": "grunt test --force",
-      "prepublish": "bower install && grunt optimize",
-      "dist": "grunt dist",
-      "start": "grunt start",
-      "optimize": "grunt optimize"
-   },
-   "devDependencies": {
-      "bower": "~1.6.3",
-      "grunt": "~0.4.4",
-      "grunt-cli": "~0.1.13",
-      "grunt-laxar": "~1.1.0"
-   }
+  "name": "component-browser",
+  "version": "0.1.0-pre",
+  "description": "A simple application to browse software components by group",
+  "license": "MIT",
+  "scripts": {
+    "test": "grunt test --force",
+    "prepublish": "bower install && grunt optimize",
+    "dist": "grunt dist",
+    "start": "grunt start",
+    "optimize": "grunt optimize"
+  },
+  "devDependencies": {
+    "bower": "~1.6.5",
+    "grunt": "~0.4.4",
+    "grunt-babel": "^5.0.3",
+    "grunt-cli": "~0.1.13",
+    "grunt-laxar": "~1.1.0",
+    "grunt-laxar-compass": "^0.3.0"
+  },
+  "dependencies": {
+    "grunt-connect-proxy": "^0.2.0"
+  }
 }
