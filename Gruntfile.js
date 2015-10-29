@@ -22,7 +22,15 @@ module.exports = function( grunt ) {
                develop: serverPort,
                test: testPort,
                livereload: liveReloadPort
+            },
+            userTasks: {
+               'build-flow': [ 'laxar-compass-flow' ]
             }
+         }
+      },
+      'laxar-compass': {
+         options: {
+            compass: './tools/bin/compass'
          }
       },
       babel: {
@@ -52,6 +60,7 @@ module.exports = function( grunt ) {
    ///////////////////////////////////////////////////////////////////////////////////////////////////////////
 
    grunt.loadNpmTasks( 'grunt-laxar' );
+   grunt.loadNpmTasks( 'grunt-laxar-compass' );
    grunt.loadNpmTasks( 'grunt-babel' );
 
    // basic aliases

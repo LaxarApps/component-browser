@@ -20,8 +20,8 @@ export default {
          const componentsDom = ( components ) =>
             <ul className='component-browser-components'>
                { components.map( component =>
-                  <li key={component.name} title={component.description}>
-                     { component.name }
+                  <li key={component.name}>
+                     <a href={ component[ 'url-readme' ] } title={ component.description }>{ component.name }</a>
                   </li>
                ) }
             </ul>;
@@ -30,22 +30,21 @@ export default {
             <ul className='component-browser-groups'>
                { groups.map( group =>
                   <li key={group.name} title={group.description}>
-                     { group.name }
+                     <h4>{ group.name }</h4>
                      { componentsDom( group.components ) }
                   </li>
                ) }
             </ul>;
 
          const originsDom = () =>
-            <ul className='component-browser-origins'>
-               { origins.map( origin =>
-                  <li key={origin.name} title={origin.description}>
-                     { origin.name }
-                     { groupsDom( origin.groups ) }
-                  </li>
-               ) }
-            </ul>;
-
+            <div className='component-browser-origin-container'>{ origins.map( origin =>
+               <ul className='component-browser-origins'>
+                     <li key={origin.name} title={origin.description}>
+                        <h3>{ origin.name }</h3>
+                        { groupsDom( origin.groups ) }
+                     </li>
+               </ul>
+            ) }</div>
 
          reactRender( originsDom() );
       }

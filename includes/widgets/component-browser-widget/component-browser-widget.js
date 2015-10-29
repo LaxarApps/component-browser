@@ -32,8 +32,12 @@ define(['exports', 'module', 'react'], function (exports, module, _react) {
                   components.map(function (component) {
                      return _React['default'].createElement(
                         'li',
-                        { key: component.name, title: component.description },
-                        component.name
+                        { key: component.name },
+                        _React['default'].createElement(
+                           'a',
+                           { href: component['url-readme'], title: component.description },
+                           component.name
+                        )
                      );
                   })
                );
@@ -47,7 +51,11 @@ define(['exports', 'module', 'react'], function (exports, module, _react) {
                      return _React['default'].createElement(
                         'li',
                         { key: group.name, title: group.description },
-                        group.name,
+                        _React['default'].createElement(
+                           'h4',
+                           null,
+                           group.name
+                        ),
                         componentsDom(group.components)
                      );
                   })
@@ -56,14 +64,22 @@ define(['exports', 'module', 'react'], function (exports, module, _react) {
 
             var originsDom = function originsDom() {
                return _React['default'].createElement(
-                  'ul',
-                  { className: 'component-browser-origins' },
+                  'div',
+                  { className: 'component-browser-origin-container' },
                   origins.map(function (origin) {
                      return _React['default'].createElement(
-                        'li',
-                        { key: origin.name, title: origin.description },
-                        origin.name,
-                        groupsDom(origin.groups)
+                        'ul',
+                        { className: 'component-browser-origins' },
+                        _React['default'].createElement(
+                           'li',
+                           { key: origin.name, title: origin.description },
+                           _React['default'].createElement(
+                              'h3',
+                              null,
+                              origin.name
+                           ),
+                           groupsDom(origin.groups)
+                        )
                      );
                   })
                );

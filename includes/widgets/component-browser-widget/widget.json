@@ -20,6 +20,15 @@
                   "format": "topic"
                }
             }
+         },
+         "relatedInfo": {
+            "type": "object",
+            "properties": {
+               "resource": {
+                  "type": "string",
+                  "format": "topic"
+               }
+            }
          }
       }
    }
