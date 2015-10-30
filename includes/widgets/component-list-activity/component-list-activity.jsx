@@ -32,7 +32,7 @@ export default {
          } );
 
          function applyRule( url, rule ) {
-            const { protocol, hostname, port, pathname } = parseUrl( url );
+            const { protocol, hostname, port, pathname, search, fragment } = parseUrl( url );
             if( protocol !== (rule.https ? 'https:' : 'http:') ) {
                return url;
             }
@@ -43,13 +43,23 @@ export default {
                 (rule.port || (rule.https ? 443 : 80)) ) {
                return url;
             }
-            return `${ rule.context }${ pathname }`;
+            const path = reverseRewrite( rule.reverseRewrite || {}, pathname );
+            console.log( path ); // :TODO: Delete
+            return `${ path }${ search || '' }${ fragment || '' }`;
          }
 
          return componentMap;
       }
    }
 };
+
+function reverseRewrite( rules, path ) {
+   return Object.keys( rules )
+      .reduce( ( path, pattern ) => {
+         console.log( 'path', path, pattern, rules[ pattern ] ); // :TODO: Delete
+         return path.replace( new RegExp( pattern ), rules[ pattern ] );
+      }, path );
+}
 
 function parseUrl( url ) {
    const a = document.createElement( 'a' );

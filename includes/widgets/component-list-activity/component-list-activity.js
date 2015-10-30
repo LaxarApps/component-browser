@@ -51,6 +51,8 @@ define(['exports', 'module'], function (exports, module) {
                var hostname = _parseUrl.hostname;
                var port = _parseUrl.port;
                var pathname = _parseUrl.pathname;
+               var search = _parseUrl.search;
+               var fragment = _parseUrl.fragment;
 
                if (protocol !== (rule.https ? 'https:' : 'http:')) {
                   return url;
@@ -61,13 +63,22 @@ define(['exports', 'module'], function (exports, module) {
                if ((port || (protocol === 'https:' ? 443 : 80)) !== (rule.port || (rule.https ? 443 : 80))) {
                   return url;
                }
-               return '' + rule.context + pathname;
+               var path = reverseRewrite(rule.reverseRewrite || {}, pathname);
+               console.log(path); // :TODO: Delete
+               return '' + path + (search || '') + (fragment || '');
             }
 
             return componentMap;
          }
       }
    };
+
+   function reverseRewrite(rules, path) {
+      return Object.keys(rules).reduce(function (path, pattern) {
+         console.log('path', path, pattern, rules[pattern]); // :TODO: Delete
+         return path.replace(new RegExp(pattern), rules[pattern]);
+      }, path);
+   }
 
    function parseUrl(url) {
       var a = document.createElement('a');
