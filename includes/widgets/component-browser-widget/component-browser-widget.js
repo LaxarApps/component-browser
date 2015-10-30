@@ -80,10 +80,10 @@ define(['exports', 'module', 'react'], function (exports, module, _react) {
                   origins.map(function (origin) {
                      return _React['default'].createElement(
                         'ul',
-                        { className: 'component-browser-origins' },
+                        { key: origin.name, className: 'component-browser-origins' },
                         _React['default'].createElement(
                            'li',
-                           { key: origin.name, title: origin.description },
+                           { title: origin.description },
                            _React['default'].createElement(
                               'h3',
                               null,

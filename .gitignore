@@ -8,3 +8,4 @@ atlassian-ide-plugin.xml
 *.backup.json
 component-browser-*.zip
 /tools
+/proxies.json

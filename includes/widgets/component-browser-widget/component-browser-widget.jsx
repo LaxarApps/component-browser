@@ -48,14 +48,16 @@ export default {
             </ul>;
 
          const originsDom = () =>
-            <div className='component-browser-origin-container'>{ origins.map( origin =>
-               <ul className='component-browser-origins'>
-                     <li key={origin.name} title={origin.description}>
+            <div className='component-browser-origin-container'>{
+               origins.map( origin =>
+                  <ul key={origin.name} className='component-browser-origins'>
+                     <li title={origin.description}>
                         <h3>{ origin.name }</h3>
                         { groupsDom( origin.groups ) }
                      </li>
-               </ul>
-            ) }</div>
+                  </ul>
+               )
+            }</div>;
 
          reactRender( originsDom() );
       }

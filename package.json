@@ -19,6 +19,7 @@
     "grunt-laxar-compass": "^0.3.0"
   },
   "dependencies": {
-    "grunt-connect-proxy": "^0.2.0"
+    "grunt-connect-proxy":
+      "git+https://github.com/drewzboto/grunt-connect-proxy#3e212633bb959ef4d546580d4ab100cf14cbf25f"
   }
 }

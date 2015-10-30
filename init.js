@@ -6,8 +6,9 @@ require( [
    'laxar',
    'laxar-react-adapter',
    'laxar-application-dependencies',
-   'json!laxar-application/var/flows/main/resources.json'
-], function( ax, axReactAdapter, applicationDependencies, resources ) {
+   'json!laxar-application/var/flows/main/resources.json',
+   'json!laxar-application/var/proxies.json'
+], function( ax, axReactAdapter, applicationDependencies, resources, proxies ) {
    'use strict';
 
    // prepare file listings for efficient asset loading
@@ -17,6 +18,9 @@ require( [
       bower_components: resources,
       includes: resources
    };
+
+   window.laxar.widgets = window.laxar.widgets || {};
+   window.laxar.widgets[ 'component-list-activity' ] = { proxies: { 'default': proxies } };
 
    ax.bootstrap( applicationDependencies, [ axReactAdapter ] );
 } );
