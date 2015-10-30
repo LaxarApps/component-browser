@@ -30,7 +30,7 @@
             "properties": {
                "rules": {
                   "type": "string",
-                  "default": null
+                  "default": "default"
                }
             }
          }

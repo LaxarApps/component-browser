@@ -37,32 +37,7 @@ module.exports = function( grunt ) {
                   return [ proxy ].concat( defaultMiddleware );
                }
             },
-            'proxies': [
-               {
-                  // http://localhost:8008/gh/LaxarJS/laxar/master/CHANGELOG.md
-                  // -> https://raw.githubusercontent.com:443/LaxarJS/laxar/master/CHANGELOG.md
-                  context: '/gh',
-                  host: 'raw.githubusercontent.com',
-                  headers: {
-                     host: 'raw.githubusercontent.com'
-                  },
-                  hostRewrite: 'localhost',
-                  // port: 443,
-                  changeOrigin: true,
-                  rewrite: { '^/gh': '' },
-                  https: true,
-                  secure: true,
-                  xforward: false
-               },
-               {
-                  context: '/components',
-                  rewrite: { '^/components': 'application/example/laxar-components.json' },
-                  host: 'localhost',
-                  port: 80,
-                  https: false,
-                  xforward: true
-               }
-            ]
+            'proxies': grunt.file.readJSON( 'var/proxies.json' )
          }
       },
       'laxar-compass': {

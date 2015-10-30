@@ -7,7 +7,7 @@
             "widget": "component-list-activity",
             "features": {
                "components": {
-                  "url": "application/example/laxar-components.json",
+                  "url": "/component-map",
                   "resource": "components"
                }
             }
