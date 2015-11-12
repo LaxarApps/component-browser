@@ -44,7 +44,6 @@ export default {
                return url;
             }
             const path = reverseRewrite( rule.reverseRewrite || {}, pathname );
-            console.log( path ); // :TODO: Delete
             return `${ path }${ search || '' }${ fragment || '' }`;
          }
 
@@ -56,7 +55,6 @@ export default {
 function reverseRewrite( rules, path ) {
    return Object.keys( rules )
       .reduce( ( path, pattern ) => {
-         console.log( 'path', path, pattern, rules[ pattern ] ); // :TODO: Delete
          return path.replace( new RegExp( pattern ), rules[ pattern ] );
       }, path );
 }
