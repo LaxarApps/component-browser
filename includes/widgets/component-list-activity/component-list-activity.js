@@ -64,7 +64,6 @@ define(['exports', 'module'], function (exports, module) {
                   return url;
                }
                var path = reverseRewrite(rule.reverseRewrite || {}, pathname);
-               console.log(path); // :TODO: Delete
                return '' + path + (search || '') + (fragment || '');
             }
 
